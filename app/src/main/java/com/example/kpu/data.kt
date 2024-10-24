@@ -1,7 +1,7 @@
 package com.example.kpu
 
 data class data(
-    val image:Int,
-    val title:String,
-    val description:String
+    val image:String,
+    val name:String,
+    val alamat:String
 )

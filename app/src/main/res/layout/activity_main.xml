@@ -35,12 +35,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_centerVertical="true"
-
                 android:layout_toRightOf="@id/logo"
                 android:textColor="@android:color/white"
                 />
-
-
         <!-- Logout Button on the Right -->
         <Button
             android:id="@+id/logout_button"
@@ -50,7 +47,8 @@
             android:layout_alignParentEnd="true"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:background=""/>
+            android:backgroundTint="@color/black"
+            />
         </RelativeLayout>
 <com.google.android.material.tabs.TabLayout
     android:id="@+id/TabLayout"
@@ -63,7 +61,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </androidx.viewpager2.widget.ViewPager2>
-
-
-
 </LinearLayout>
