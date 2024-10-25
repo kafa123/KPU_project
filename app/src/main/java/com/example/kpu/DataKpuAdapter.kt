@@ -27,7 +27,8 @@ class DataKpuAdapter(
         fun bind(item: data) {
             if (item.image != null) {
                 Glide.with(itemView.context)
-                    .load(File(item.image)) // Ensure imagePath is correct
+                    .load(File(item.image))
+                    .centerCrop()
                     .into(binding.itemImage)
             } else {
                 binding.itemImage.setImageResource(R.drawable.logo) // Use a placeholder if no image

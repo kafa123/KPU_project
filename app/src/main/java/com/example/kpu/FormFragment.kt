@@ -94,7 +94,9 @@ class FormFragment : Fragment() {
                 imageUri?.let { uri ->
                     Glide.with(this)
                         .load(uri)
+                        .centerCrop()
                         .into(binding.image)
+
                 }
             } else {
                 Toast.makeText(requireContext(), "Failed to capture image", Toast.LENGTH_SHORT).show()
@@ -106,6 +108,7 @@ class FormFragment : Fragment() {
             uri?.let {
                 Glide.with(this)
                     .load(uri)
+                    .centerCrop()
                     .into(binding.image)
             }
         }

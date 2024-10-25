@@ -24,7 +24,7 @@
             app:endIconMode="clear_text">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-
+                android:textColor="@color/cream"
                 android:layout_height="match_parent"
                 android:id="@+id/text_nama" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -40,7 +40,7 @@
             app:endIconMode="clear_text">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-
+                android:textColor="@color/cream"
                 android:layout_height="match_parent"
                 android:id="@+id/text_nik" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,7 +56,7 @@
             app:endIconMode="clear_text">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-
+                android:textColor="@color/cream"
                 android:layout_height="match_parent"
                 android:id="@+id/text_noHP" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -80,6 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textColor="@color/cream"
                 android:layout_marginHorizontal="12dp"
                 android:text="Male" />
 
@@ -89,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/cream"
                 android:text="Female" />
         </RadioGroup>
 
@@ -104,6 +106,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/DatePicker"
                 android:clickable="true"
+                android:textColor="@color/cream"
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,7 +123,7 @@
             app:endIconMode="clear_text">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-
+                android:textColor="@color/cream"
                 android:layout_height="match_parent"
                 android:id="@+id/text_Alamat" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -141,6 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gambar"
+            android:textColor="@color/cream"
             android:layout_gravity="center_horizontal"
             android:textSize="16sp"
             android:textStyle="bold"/>
