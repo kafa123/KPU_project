@@ -29,12 +29,6 @@ class InformationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Sample Data
-//        val sampleData = listOf(
-//            data(R.drawable.logo, "Name 1", "Alamat 1"),
-//            data(R.drawable.logo, "Name 2", "Alamat 2"),
-//            data(R.drawable.logo, "Name 3", "Alamat 3")
-//        )
 
         // Setup Adapter
         dataKpuAdapter = DataKpuAdapter(databaseHelper.getAllUsers()) { selectedItem ->
@@ -46,6 +40,11 @@ class InformationFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = dataKpuAdapter
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        dataKpuAdapter.updateData(databaseHelper.getAllUsers())
     }
 
     override fun onDestroyView() {

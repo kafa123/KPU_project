@@ -8,7 +8,7 @@ import com.example.kpu.databinding.DataBinding
 import java.io.File
 
 class DataKpuAdapter(
-    private val dataList: List<data>,
+    private var dataList: List<data>,
     private val onClickItem: (data) -> Unit
 ) : RecyclerView.Adapter<DataKpuAdapter.DataViewHolder>() {
 
@@ -36,6 +36,11 @@ class DataKpuAdapter(
             binding.itemAlamat.text = item.alamat
             binding.root.setOnClickListener { onClickItem(item) }
         }
+    }
+
+    fun updateData(newData: List<data>) {
+        dataList = newData
+        notifyDataSetChanged()
     }
 
 }

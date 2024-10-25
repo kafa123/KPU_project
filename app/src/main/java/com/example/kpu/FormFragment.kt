@@ -88,7 +88,7 @@ class FormFragment : Fragment() {
     }
 
     private fun setupLaunchers() {
-        // Camera launcher to take a picture
+
         cameraLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
             if (success) {
                 imageUri?.let { uri ->
