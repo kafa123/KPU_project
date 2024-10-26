@@ -69,7 +69,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 val nik = cursor.getString(cursor.getColumnIndexOrThrow("nik"))
                 val imagePath = cursor.getString(cursor.getColumnIndexOrThrow("image"))
 
-                val data = data(imagePath, name, nik)
+                val data = data(id,imagePath, name, nik)
                 userList.add(data)
             } while (cursor.moveToNext())
         }
@@ -77,5 +77,30 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor.close()
         return userList
     }
+
+    fun getDetailsUser(id: Int): dataDetail? {
+        val db = readableDatabase
+        var user: dataDetail? = null
+        val cursor = db.rawQuery("SELECT * FROM UserDetails WHERE id = ?", arrayOf(id.toString()))
+
+        if (cursor.moveToFirst()) {
+            do{
+                val userId = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
+                val name = cursor.getString(cursor.getColumnIndexOrThrow("nama"))
+                val nik = cursor.getString(cursor.getColumnIndexOrThrow("nik"))
+                val imagePath = cursor.getString(cursor.getColumnIndexOrThrow("image"))
+                val phone = cursor.getString(cursor.getColumnIndexOrThrow("noHp"))
+                val gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"))
+                val date = cursor.getString(cursor.getColumnIndexOrThrow("date"))
+                val alamat = cursor.getString(cursor.getColumnIndexOrThrow("alamat"))
+
+                user = dataDetail(userId,imagePath, name, nik, phone, alamat, date,gender)
+            } while (cursor.moveToNext())
+
+        }
+        cursor.close()
+        return user
+    }
+
 
 }

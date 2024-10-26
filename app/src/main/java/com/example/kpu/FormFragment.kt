@@ -103,7 +103,6 @@ class FormFragment : Fragment() {
             }
         }
 
-        // Gallery launcher to pick an image
         galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let {
                 Glide.with(this)
@@ -115,14 +114,13 @@ class FormFragment : Fragment() {
     }
 
     private fun showImageSourceDialog() {
-        // Show dialog to choose between Camera or Gallery
         val options = arrayOf("Camera", "Gallery")
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Select Image Source")
             .setItems(options) { dialog, which ->
                 when (which) {
-                    0 -> openCamera()  // Camera option
-                    1 -> openGallery() // Gallery option
+                    0 -> openCamera()
+                    1 -> openGallery()
                 }
             }
         builder.show()
@@ -155,35 +153,45 @@ class FormFragment : Fragment() {
     private fun saveData(){
         with(binding){
 
-                val name = textNama.text.toString()
-                val nik = textNik.text.toString()
-                val noHp = textNoHP.text.toString()
-                val gender = if (radioMale.isChecked) "Male" else "Female"
-                val birthDate = DatePicker.text.toString()
-                val address = textAlamat.text.toString()
+            val name = textNama.text.toString()
+            val nik = textNik.text.toString()
+            val noHp = textNoHP.text.toString()
+            val gender = if (radioMale.isChecked) "Male" else "Female"
+            val birthDate = DatePicker.text.toString()
+            val address = textAlamat.text.toString()
 
-                // Handle image saving (saving the image URI or image as byte array)
-                val imageBitmap = (binding.image.drawable as? BitmapDrawable)?.bitmap
-                var imagePath: String? = null
-                var imageByteArray: ByteArray? = null
+            val imageBitmap = (binding.image.drawable as? BitmapDrawable)?.bitmap
+            var imagePath: String? = null
+            var imageByteArray: ByteArray? = null
 
-                imageBitmap?.let { bitmap ->
-                    val file = createImageFile()
-                    val outStream = FileOutputStream(file)
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
-                    outStream.flush()
-                    outStream.close()
-                    imagePath = file.absolutePath
-                }
+            imageBitmap?.let { bitmap ->
+                val file = createImageFile()
+                val outStream = FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
+                outStream.flush()
+                outStream.close()
+                imagePath = file.absolutePath
+            }
 
-                // Save the data in the database (simplified example)
-                val isSuccess = databaseHelper.insertData(name, nik, noHp, gender, birthDate, address, imagePath.toString())
+            // Save the data in the database (simplified example)
+            val isSuccess = databaseHelper.insertData(name, nik, noHp, gender, birthDate, address, imagePath.toString())
+            if (isSuccess) {
+                Toast.makeText(requireContext(), "Data saved successfully!", Toast.LENGTH_SHORT).show()
 
-                if (isSuccess) {
-                    Toast.makeText(requireContext(), "Data saved successfully!", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Failed to save data", Toast.LENGTH_SHORT).show()
-                }
+                // Clear the form fields
+                textNama.text?.clear()
+                textNik.text?.clear()
+                textNoHP.text?.clear()
+                DatePicker.setText("")
+                textAlamat.text?.clear()
+                image.setImageResource(R.drawable.logo)  // Reset image view to placeholder
+
+                // Reset radio button selection
+                radioMale.isChecked = false
+                radioFemale.isChecked = false
+            } else {
+                Toast.makeText(requireContext(), "Failed to save data", Toast.LENGTH_SHORT).show()
+            }
             }
     }
 
@@ -220,7 +228,6 @@ class FormFragment : Fragment() {
                     getAddressInfo(location.latitude,location.longitude)
                 } else {
                     Log.e("CurrentLocation", "Location not found")
-                    // Handle case where location is not available
                 }
             }
             .addOnFailureListener { e ->

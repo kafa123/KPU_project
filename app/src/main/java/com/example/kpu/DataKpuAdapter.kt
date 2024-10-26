@@ -1,7 +1,9 @@
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.kpu.DetailDataActivity
 import com.example.kpu.R
 import com.example.kpu.data
 import com.example.kpu.databinding.DataBinding
@@ -34,8 +36,12 @@ class DataKpuAdapter(
                 binding.itemImage.setImageResource(R.drawable.logo) // Use a placeholder if no image
             }
             binding.itemName.text = item.name
-            binding.itemAlamat.text = item.alamat
-            binding.root.setOnClickListener { onClickItem(item) }
+            binding.itemAlamat.text = item.nik
+            binding.root.setOnClickListener {
+                val intent = Intent(itemView.context, DetailDataActivity::class.java)
+                intent.putExtra("user_id", item.id)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 
