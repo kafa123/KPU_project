@@ -89,7 +89,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 val name = cursor.getString(cursor.getColumnIndexOrThrow("nama"))
                 val nik = cursor.getString(cursor.getColumnIndexOrThrow("nik"))
                 val imagePath = cursor.getString(cursor.getColumnIndexOrThrow("image"))
-                val phone = cursor.getString(cursor.getColumnIndexOrThrow("noHp"))
+                val phone = cursor.getString(cursor.getColumnIndexOrThrow("noHP"))
                 val gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"))
                 val date = cursor.getString(cursor.getColumnIndexOrThrow("date"))
                 val alamat = cursor.getString(cursor.getColumnIndexOrThrow("alamat"))
@@ -101,6 +101,4 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor.close()
         return user
     }
-
-
 }

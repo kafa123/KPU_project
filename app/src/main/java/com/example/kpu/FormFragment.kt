@@ -201,9 +201,7 @@ class FormFragment : Fragment() {
         val address: String = addresses!![0].getAddressLine(0)
         binding.textAlamat.setText(address)
     }
-
     private fun getCurrentLocation() {
-        // Check for location permissions
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -212,7 +210,6 @@ class FormFragment : Fragment() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // Request permissions if not granted
             ActivityCompat.requestPermissions(
                 requireActivity(),
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
@@ -220,8 +217,6 @@ class FormFragment : Fragment() {
             )
             return
         }
-
-        // Permissions granted, get the last known location
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location: Location? ->
                 if (location != null) {

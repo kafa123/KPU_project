@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context=".DetailDataActivity">
 
@@ -39,7 +40,7 @@
                 android:layout_toRightOf="@id/logo"
                 android:textColor="@android:color/white"
                 />
-            <!-- Logout Button on the Right -->
+
             <Button
                 android:id="@+id/logout_button"
                 android:layout_width="wrap_content"
@@ -59,8 +60,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/cream"
                 android:clickable="false"
+                android:enabled="false"
                 android:layout_height="match_parent"
                 android:id="@+id/text_nama" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -101,6 +101,9 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/cream"
                 android:clickable="false"
+                android:enabled="false"
+                android:inputType="number"
+                android:maxLength="16"
                 android:layout_height="match_parent"
                 android:id="@+id/text_nik" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -119,6 +122,8 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/cream"
                 android:clickable="false"
+                android:enabled="false"
+                android:inputType="number"
                 android:layout_height="match_parent"
                 android:id="@+id/text_noHP" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -128,6 +133,7 @@
             android:layout_height="wrap_content"
             android:hint="gender"
             android:clickable="false"
+            android:enabled="false"
             android:layout_marginVertical="16dp"
             android:id="@+id/layout_Gender">
 
@@ -145,6 +151,7 @@
             android:layout_height="wrap_content"
             android:hint="tanggal"
             android:clickable="false"
+            android:enabled="false"
             android:layout_marginVertical="16dp"
             android:id="@+id/layout_DatePicker"
             >
@@ -170,7 +177,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:textColor="@color/cream"
-                android:clickable="false"
+                android:enabled="false"
                 android:layout_height="match_parent"
                 android:id="@+id/text_Alamat" />
         </com.google.android.material.textfield.TextInputLayout>
