@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="60dp"
         android:layout_height="60dp"
+
         app:cardCornerRadius="30dp">
         <ImageView
             android:id="@+id/item_image"
@@ -18,7 +19,8 @@
             android:src="@drawable/baseline_person_24" />
     </androidx.cardview.widget.CardView>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="6"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -39,4 +41,12 @@
             android:text="Description"
             android:textSize="14sp" />
     </LinearLayout>
+    <ImageView
+        android:clickable="true"
+        android:layout_weight="1"
+        android:id="@+id/delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/round_delete"
+        android:layout_gravity="center_vertical"/>
 </LinearLayout>

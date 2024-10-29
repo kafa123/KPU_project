@@ -1,5 +1,6 @@
 package com.example.kpu
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +36,10 @@ class DetailDataActivity : AppCompatActivity() {
                     Glide.with(this@DetailDataActivity).load(user.image).centerCrop().into(image)
                 }
             }
+        }
+        binding.logoutButton.setOnClickListener {
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
         }
     }
     

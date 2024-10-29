@@ -1,5 +1,6 @@
 package com.example.kpu
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
             TabLayoutMediator(TabLayout,viewPager){
                     tab,position->tab.text= resources.getString((TAB_TITLES[position]))
             }.attach()
+
+            logoutButton.setOnClickListener {
+                val intent = Intent(this@MainActivity,LoginActivity::class.java)
+                startActivity(intent)
+            }
         }
 
 

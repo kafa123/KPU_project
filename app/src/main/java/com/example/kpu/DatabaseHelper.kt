@@ -101,4 +101,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor.close()
         return user
     }
+
+    fun delete(id: Int){
+        val db = writableDatabase
+        val deletedRows = db.delete(TABLE_NAME, "$COL_ID = ?", arrayOf(id.toString()))
+        db.close()
+    }
 }

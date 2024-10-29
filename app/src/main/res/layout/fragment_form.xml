@@ -17,7 +17,7 @@
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:id="@+id/layout_nama"
             android:hint="nama"
-            app:layout_constraintBottom_toTopOf="@+id/layout_password"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -33,7 +33,7 @@
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:id="@+id/layout_nik"
             android:hint="nik"
-            app:layout_constraintBottom_toTopOf="@+id/layout_password"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -41,6 +41,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:textColor="@color/cream"
+                android:maxLength="16"
+                android:inputType="number"
                 android:layout_height="match_parent"
                 android:id="@+id/text_nik" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -57,6 +59,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:textColor="@color/cream"
+                android:inputType="number"
                 android:layout_height="match_parent"
                 android:id="@+id/text_noHP" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -168,6 +171,7 @@
             android:id="@+id/btn_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
             android:padding="12dp"
             android:text="Submit"/>

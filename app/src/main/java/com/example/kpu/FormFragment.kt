@@ -33,8 +33,14 @@ import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class FormFragment : Fragment() {
+class FormFragment : Fragment(), MapsFragment.LocationListener {
 
     private var _binding: FragmentFormBinding? = null
     private lateinit var cameraLauncher: ActivityResultLauncher<Uri>
@@ -72,6 +78,9 @@ class FormFragment : Fragment() {
 
         binding.AddressCheck.setOnClickListener {
             getCurrentLocation()
+            val dialog=MapsFragment()
+            dialog.setTargetFragment(this, 0)
+            dialog.show(parentFragmentManager, "Location Dialog")
         }
 
         // Set click listener for cardImage to open the image source dialog
@@ -235,4 +244,10 @@ class FormFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onLocationSelected(latLng: LatLng) {
+        Log.e("error", "onLocationSelected: ")
+        getAddressInfo(latLng.latitude, latLng.longitude)
+    }
+
 }
